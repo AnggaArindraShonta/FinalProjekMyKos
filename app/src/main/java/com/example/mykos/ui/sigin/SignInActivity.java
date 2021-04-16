@@ -11,6 +11,7 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mykos.R;
+import com.example.mykos.databinding.ActivitySignInBinding;
 import com.example.mykos.ui.HomeActivity;
 import com.example.mykos.utils.SharedPrefManager;
 import com.rengwuxian.materialedittext.MaterialEditText;
@@ -23,14 +24,17 @@ public class SignInActivity extends AppCompatActivity {
 
     private SignInViewModel signInViewModel;
 
+    private ActivitySignInBinding binding;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_sign_in);
+        binding = ActivitySignInBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
 
-        etEmail = findViewById(R.id.email);
-        etPassword = findViewById(R.id.password);
-        btnSignIn = findViewById(R.id.btnsignin);
+        etEmail = binding.email;
+        etPassword = binding.password;
+        btnSignIn = binding.btnsignin;
 
         subscribeToObservers();
 
