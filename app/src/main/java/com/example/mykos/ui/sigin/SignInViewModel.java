@@ -44,4 +44,8 @@ public class SignInViewModel extends ViewModel {
     public LiveData<Boolean> observeIsLogin(){
         return isSuccessLogin;
     }
+
+    public boolean checkIsLoggedIn() {
+        return prefManager.getIsLogin();
+    }
 }
