@@ -11,7 +11,7 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.mykos.R;
-import com.example.mykos.ui.SharedPref.SharedPrefManager;
+import com.example.mykos.SharedPref.SharedPrefManager;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class SignInActivity extends AppCompatActivity {

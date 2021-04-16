@@ -1,4 +1,4 @@
-package com.example.mykos.ui.SharedPref;
+package com.example.mykos.SharedPref;
 
 import android.content.Context;
 import android.content.SharedPreferences;
