@@ -44,7 +44,7 @@ public class SignInActivity extends AppCompatActivity {
                 final String password = etPassword.getText().toString();
 
                 if (email.isEmpty() || password.isEmpty()){
-                    Toast.makeText(SignInActivity.this, "username dan password salah :)", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(SignInActivity.this, "username dan password tidak boleh kosong :)", Toast.LENGTH_SHORT).show();
                 }else{
                     handler.postDelayed(new Runnable() {
                         @Override
@@ -53,8 +53,8 @@ public class SignInActivity extends AppCompatActivity {
                             String spEmail = sharedPrefManager.getUsername();
                             String spPassword = sharedPrefManager.getPassword();
 
-                            Log.d("email","email"+email);
-                            Log.d("password","pass"+password);
+                            Log.d("email","email" + email);
+                            Log.d("password","pass" + password);
 
                             if (email.equals(spEmail) && password.equals(spPassword)){
                                 Intent i = new Intent(SignInActivity.this, HomeActivity.class);
