@@ -10,7 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.mykos.R;
 import com.example.mykos.databinding.ActivitySignInBinding;
 import com.example.mykos.ui.HomeActivity;
 import com.example.mykos.utils.SharedPrefManager;
@@ -36,9 +35,19 @@ public class SignInActivity extends AppCompatActivity {
         etPassword = binding.password;
         btnSignIn = binding.btnsignin;
 
-        subscribeToObservers();
-
         initViewModel();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+
+        if (signInViewModel.checkIsLoggedIn()){
+            gotoHome();
+            return;
+        }
+
+        subscribeToObservers();
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -46,7 +55,6 @@ public class SignInActivity extends AppCompatActivity {
                 login();
             }
         });
-        login();
     }
 
     private void initViewModel() {
@@ -60,14 +68,18 @@ public class SignInActivity extends AppCompatActivity {
             @Override
             public void onChanged(Boolean isSuccessLogin) {
                 if (isSuccessLogin){
-                    Intent i = new Intent(SignInActivity.this, HomeActivity.class);
-                    finishAffinity();
-                    startActivity(i);
+                    gotoHome();
                 }else {
                     Toast.makeText(SignInActivity.this, "username dan password salah :)", Toast.LENGTH_SHORT).show();
                 }
             }
         });
+    }
+
+    private void gotoHome() {
+        Intent i = new Intent(SignInActivity.this, HomeActivity.class);
+        finishAffinity();
+        startActivity(i);
     }
 
     private void login() {
