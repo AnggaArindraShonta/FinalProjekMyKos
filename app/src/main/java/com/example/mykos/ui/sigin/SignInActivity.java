@@ -17,8 +17,6 @@ import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class SignInActivity extends AppCompatActivity {
 
-    private Handler handler = new Handler();
-    private SharedPrefManager sharedPrefManager;
     private MaterialEditText etEmail;
     private MaterialEditText etPassword;
     private ImageButton btnsignin;
@@ -28,7 +26,6 @@ public class SignInActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_sign_in);
 
-        sharedPrefManager = new SharedPrefManager(this);
         etEmail = findViewById(R.id.email);
         etPassword = findViewById(R.id.password);
         btnsignin = findViewById(R.id.btnsignin);
