@@ -18,8 +18,8 @@ public class SignInActivity extends AppCompatActivity {
 
     private Handler handler = new Handler();
     private SharedPrefManager sharedPrefManager;
-    private MaterialEditText email;
-    private MaterialEditText password;
+    private MaterialEditText etEmail;
+    private MaterialEditText etPassword;
     private ImageButton btnsignin;
 
     @Override
@@ -28,8 +28,8 @@ public class SignInActivity extends AppCompatActivity {
         setContentView(R.layout.activity_sign_in);
 
         sharedPrefManager = new SharedPrefManager(this);
-        email = findViewById(R.id.email);
-        password = findViewById(R.id.password);
+        etEmail = findViewById(R.id.email);
+        etPassword = findViewById(R.id.password);
         btnsignin = findViewById(R.id.btnsignin);
 
         login();
@@ -38,8 +38,10 @@ public class SignInActivity extends AppCompatActivity {
         btnsignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                final String email = email.getText().toString();
-                final String password = password.getText().toString();
+                if (etEmail.getText() == null || etPassword.getText() == null) return;
+
+                final String email = etEmail.getText().toString();
+                final String password = etPassword.getText().toString();
 
                 if (email.isEmpty() || password.isEmpty()){
                     Toast.makeText(SignInActivity.this, "username dan password salah :)", Toast.LENGTH_SHORT).show();
