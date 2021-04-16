@@ -10,11 +10,13 @@
         android:layout_height="wrap_content">
 
         <ImageView
+            android:id="@+id/image"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/kureta" />
 
         <TextView
+            android:id="@+id/rating"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
@@ -33,6 +35,7 @@
         android:orientation="vertical">
 
         <TextView
+            android:id="@+id/txtnama"
             android:fontFamily="@font/poppinsmedium"
             android:textColor="@color/black"
             android:layout_marginStart="20dp"
@@ -41,6 +44,7 @@
             android:layout_height="wrap_content"
             android:text="Kuretakeso Hott"/>
         <TextView
+            android:id="@+id/txtharga"
             android:fontFamily="@font/poppinslight"
             android:textColor="@color/black"
             android:layout_marginStart="18dp"
@@ -49,6 +53,7 @@
             android:layout_height="wrap_content"
             android:text="@string/harga"/>
         <TextView
+            android:id="@+id/txttempat"
             android:fontFamily="@font/poppinslight"
             android:textColor="@color/black"
             android:layout_marginStart="18dp"
