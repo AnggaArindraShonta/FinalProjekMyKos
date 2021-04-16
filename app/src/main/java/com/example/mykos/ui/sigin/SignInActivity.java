@@ -1,4 +1,4 @@
-package com.example.mykos.ui;
+package com.example.mykos.ui.sigin;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -11,7 +11,8 @@ import android.widget.ImageButton;
 import android.widget.Toast;
 
 import com.example.mykos.R;
-import com.example.mykos.ui.SharedPref.SharedPrefManager;
+import com.example.mykos.ui.HomeActivity;
+import com.example.mykos.utils.SharedPrefManager;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class SignInActivity extends AppCompatActivity {

@@ -14,7 +14,7 @@
         <activity android:name=".ui.OTPVerActivity" />
         <activity android:name=".ui.OTPPhoneActivity" />
         <activity android:name=".ui.SignUpActivity" />
-        <activity android:name=".ui.SignInActivity" />
+        <activity android:name=".ui.sigin.SignInActivity" />
         <activity android:name=".ui.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
