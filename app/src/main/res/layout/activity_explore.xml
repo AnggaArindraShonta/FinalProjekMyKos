@@ -8,6 +8,17 @@
     android:background="@color/white"
     tools:context=".ui.ExploreActivity">
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="433dp"
+        android:layout_marginBottom="0dp"
+        android:layout_marginTop="15dp"
+        android:background="@drawable/splash_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btn_explore_now" />
+
 
     <ImageView
         android:id="@+id/btnback"
@@ -34,7 +45,7 @@
         android:textColor="#000000"
         android:textSize="20sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/flatsplash"
+        app:layout_constraintBottom_toTopOf="@+id/btn_explore_now"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/btnback" />
@@ -52,14 +63,14 @@
         android:textColor="#82868E"
         android:textSize="15sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toTopOf="@+id/flatsplash"
+        app:layout_constraintBottom_toTopOf="@+id/btn_explore_now"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
 
     <ImageButton
-        android:id="@+id/flatsplash"
+        android:id="@+id/btn_explore_now"
         android:layout_width="210dp"
         android:layout_height="50dp"
         android:layout_marginTop="308dp"
@@ -69,16 +80,5 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <ImageView
-        android:layout_width="match_parent"
-        android:layout_height="433dp"
-        android:layout_marginBottom="0dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/splash_image"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/flatsplash" />
 
    </androidx.constraintlayout.widget.ConstraintLayout>
