@@ -3,22 +3,18 @@ package com.example.mykos.ui.sigin;
 import android.os.Handler;
 import android.util.Log;
 
-import androidx.lifecycle.LiveData;
-import androidx.lifecycle.MutableLiveData;
-import androidx.lifecycle.ViewModel;
-
 import com.example.mykos.utils.SharedPrefManager;
 
-public class SignInViewModel extends ViewModel {
+public class SignInPresenter {
 
-    private SharedPrefManager prefManager;
+    private SignInView signInView;
     private Handler handler = new Handler();
+    private SharedPrefManager prefManager;
 
-    public SignInViewModel(SharedPrefManager prefManager) {
+    public SignInPresenter(SignInView signInView, SharedPrefManager prefManager) {
+        this.signInView = signInView;
         this.prefManager = prefManager;
     }
-
-    private MutableLiveData<Boolean> isSuccessLogin = new MutableLiveData<>();
 
     public void login(String email, String password){
 
@@ -33,16 +29,12 @@ public class SignInViewModel extends ViewModel {
             public void run() {
                 if (email.equals(spEmail) && password.equals(spPassword)){
                     prefManager.saveIsLogin(true);
-                    isSuccessLogin.postValue(true);
+                    signInView.onLoginSuccess();
                 }else {
-                    isSuccessLogin.postValue(false);
+                    signInView.onLoginFailed();
                 }
             }
         }, 3000);
-    }
-
-    public LiveData<Boolean> observeIsLogin(){
-        return isSuccessLogin;
     }
 
     public boolean checkIsLoggedIn() {

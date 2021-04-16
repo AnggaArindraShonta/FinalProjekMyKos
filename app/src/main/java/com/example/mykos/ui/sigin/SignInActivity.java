@@ -15,13 +15,13 @@ import com.example.mykos.ui.HomeActivity;
 import com.example.mykos.utils.SharedPrefManager;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
-public class SignInActivity extends AppCompatActivity {
+public class SignInActivity extends AppCompatActivity implements SignInView {
 
     private MaterialEditText etEmail;
     private MaterialEditText etPassword;
     private ImageButton btnSignIn;
 
-    private SignInViewModel signInViewModel;
+    private SignInPresenter signInPresenter;
 
     private ActivitySignInBinding binding;
 
@@ -42,12 +42,10 @@ public class SignInActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
 
-        if (signInViewModel.checkIsLoggedIn()){
+        if (signInPresenter.checkIsLoggedIn()){
             gotoHome();
             return;
         }
-
-        subscribeToObservers();
 
         btnSignIn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -59,21 +57,7 @@ public class SignInActivity extends AppCompatActivity {
 
     private void initViewModel() {
         SharedPrefManager sharedPrefManager = new SharedPrefManager(this);
-        ViewModelProvider.Factory factory = new SignInViewModelFactory(sharedPrefManager);
-        signInViewModel = new ViewModelProvider(this, factory).get(SignInViewModel.class);
-    }
-
-    private void subscribeToObservers() {
-        signInViewModel.observeIsLogin().observe(this, new Observer<Boolean>() {
-            @Override
-            public void onChanged(Boolean isSuccessLogin) {
-                if (isSuccessLogin){
-                    gotoHome();
-                }else {
-                    Toast.makeText(SignInActivity.this, "username dan password salah :)", Toast.LENGTH_SHORT).show();
-                }
-            }
-        });
+        signInPresenter = new SignInPresenter(this, sharedPrefManager);
     }
 
     private void gotoHome() {
@@ -91,7 +75,17 @@ public class SignInActivity extends AppCompatActivity {
         if (email.isEmpty() || password.isEmpty()){
             Toast.makeText(SignInActivity.this, "username dan password tidak boleh kosong :)", Toast.LENGTH_SHORT).show();
         }else{
-            signInViewModel.login(email, password);
+            signInPresenter.login(email, password);
         }
+    }
+
+    @Override
+    public void onLoginSuccess() {
+        gotoHome();
+    }
+
+    @Override
+    public void onLoginFailed() {
+        Toast.makeText(SignInActivity.this, "username dan password salah :)", Toast.LENGTH_SHORT).show();
     }
 }
