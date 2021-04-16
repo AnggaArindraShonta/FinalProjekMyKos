@@ -12,9 +12,11 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mykos.databinding.ActivitySignInBinding;
 import com.example.mykos.ui.HomeActivity;
-import com.example.mykos.utils.SharedPrefManager;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class SignInActivity extends AppCompatActivity {
 
     private MaterialEditText etEmail;
@@ -58,9 +60,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void initViewModel() {
-        SharedPrefManager sharedPrefManager = new SharedPrefManager(this);
-        ViewModelProvider.Factory factory = new SignInViewModelFactory(sharedPrefManager);
-        signInViewModel = new ViewModelProvider(this, factory).get(SignInViewModel.class);
+        signInViewModel = new ViewModelProvider(this).get(SignInViewModel.class);
     }
 
     private void subscribeToObservers() {

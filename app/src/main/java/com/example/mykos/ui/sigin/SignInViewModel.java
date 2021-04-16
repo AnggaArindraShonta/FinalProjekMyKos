@@ -9,11 +9,17 @@ import androidx.lifecycle.ViewModel;
 
 import com.example.mykos.utils.SharedPrefManager;
 
+import javax.inject.Inject;
+
+import dagger.hilt.android.lifecycle.HiltViewModel;
+
+@HiltViewModel
 public class SignInViewModel extends ViewModel {
 
     private SharedPrefManager prefManager;
     private Handler handler = new Handler();
 
+    @Inject
     public SignInViewModel(SharedPrefManager prefManager) {
         this.prefManager = prefManager;
     }
