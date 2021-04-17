@@ -3,11 +3,13 @@ package com.example.mykos.adapter;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.bumptech.glide.Glide;
 import com.example.mykos.R;
 import com.example.mykos.model.Kos;
 
@@ -31,10 +33,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
 
     @Override
     public void onBindViewHolder(@NonNull HolderData holder, int position) {
-        holder.rating.setText(kos.get(position).getRating());
-        holder.nama.setText(kos.get(position).getName());
-        holder.harga.setText(kos.get(position).getPrice());
-        holder.tempat.setText(kos.get(position).getCity());
+        holder.bindItem(kos.get(position));
     }
 
     @Override
@@ -44,6 +43,8 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
 
     public class HolderData extends RecyclerView.ViewHolder{
         TextView rating, nama, harga, tempat;
+        private ImageView image;
+
         public HolderData(@NonNull View itemView) {
             super(itemView);
 
@@ -51,6 +52,17 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
             nama = itemView.findViewById(R.id.txtnama);
             harga = itemView.findViewById(R.id.txtharga);
             tempat = itemView.findViewById(R.id.txttempat);
+            image = itemView.findViewById(R.id.image);
+        }
+
+        public void bindItem(Kos kos) {
+            rating.setText(kos.getRating());
+            nama.setText(kos.getName());
+            harga.setText(kos.getPrice());
+            tempat.setText(kos.getCity());
+            Glide.with(itemView)
+                    .load(kos.getImage_url())
+                    .into(image);
         }
     }
 }
