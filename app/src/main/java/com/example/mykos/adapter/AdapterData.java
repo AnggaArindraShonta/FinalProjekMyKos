@@ -10,15 +10,17 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mykos.R;
+import com.example.mykos.model.Kos;
 
 import java.util.List;
 
 public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
-    List<String> listData;
+    List<Kos> kos;
     LayoutInflater layoutInflater;
+    private Context context;
 
-    public AdapterData(Context context, List<String> listData) {
-        this.listData = listData;
+    public AdapterData(Context context, List<Kos> kos) {
+        this.kos = kos;
         this.layoutInflater = LayoutInflater.from(context);
     }
 
@@ -31,15 +33,15 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
 
     @Override
     public void onBindViewHolder(@NonNull HolderData holder, int position) {
-        holder.rating.setText(listData.get(position));
-        holder.nama.setText(listData.get(position));
-        holder.harga.setText(listData.get(position));
-        holder.tempat.setText(listData.get(position));
+        holder.rating.setText(kos.get(position).getRating());
+        holder.nama.setText(kos.get(position).getName());
+        holder.harga.setText(kos.get(position).getPrice());
+        holder.tempat.setText(kos.get(position).getCity());
     }
 
     @Override
     public int getItemCount() {
-        return listData.size();
+        return kos.size();
     }
 
     public class HolderData extends RecyclerView.ViewHolder{

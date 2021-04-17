@@ -51,8 +51,9 @@ dependencies {
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     implementation 'mx.jesusmartinoza:sweet-password:0.2'
 
-    //Volley
-    implementation 'com.github.bumptech.glide:glide:4.11.0'
-    implementation 'com.android.volley:volley:1.2.0'
+    // Retrofit, gson
+    implementation 'com.google.code.gson:gson:2.8.6'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.0.2'
 
 }
