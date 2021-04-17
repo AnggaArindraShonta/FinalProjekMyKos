@@ -29,16 +29,10 @@ public class ExploreActivity extends AppCompatActivity {
         binding.btnExploreNow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getApplicationContext(), SignInActivity.class);
-                startActivity(intent);
+                Intent i = new Intent(ExploreActivity.this, HomeActivity.class);
+                finishAffinity();
+                startActivity(i);
             }
-        });
-
-        button = findViewById(R.id.flatsplash);
-        button.setOnClickListener(v -> {
-            Intent i = new Intent(ExploreActivity.this, HomeActivity.class);
-            finishAffinity();
-            startActivity(i);
         });
     }
 }
