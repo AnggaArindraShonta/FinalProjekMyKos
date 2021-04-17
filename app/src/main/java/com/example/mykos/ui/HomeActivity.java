@@ -6,7 +6,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.Toast;
 
 import com.example.mykos.R;
 import com.example.mykos.adapter.AdapterData;
@@ -31,11 +30,10 @@ public class HomeActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        final RecyclerView recyclerView = (RecyclerView) findViewById(R.id.rv);
+        adapter = new AdapterData();
+        recyclerView = (RecyclerView) findViewById(R.id.rv);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-
-        ApiInterface apiService =
-                ApiClient.getClient().create(ApiInterface.class);
+        recyclerView.setAdapter(adapter);
 
         Call<Kos> call = apiService.getTopRatedMovies(API_KEY);
         call.enqueue(new Callback<Kos>() {
