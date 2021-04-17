@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
-import com.example.mykos.utils.SharedPrefManager;
+import com.example.mykos.SharedPref.SharedPrefManager;
 
 public class SignInViewModelFactory implements ViewModelProvider.Factory {
     private final SharedPrefManager prefManager;

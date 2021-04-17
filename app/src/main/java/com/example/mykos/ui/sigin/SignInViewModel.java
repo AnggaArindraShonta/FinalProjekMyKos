@@ -7,7 +7,7 @@ import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 
-import com.example.mykos.utils.SharedPrefManager;
+import com.example.mykos.SharedPref.SharedPrefManager;
 
 public class SignInViewModel extends ViewModel {
 
