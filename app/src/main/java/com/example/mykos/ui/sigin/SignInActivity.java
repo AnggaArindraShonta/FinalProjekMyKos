@@ -12,7 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mykos.SharedPref.SharedPrefManager;
 import com.example.mykos.databinding.ActivitySignInBinding;
-import com.example.mykos.ui.HomeActivity;
+import com.example.mykos.ui.home.HomeActivity;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
 public class SignInActivity extends AppCompatActivity {
