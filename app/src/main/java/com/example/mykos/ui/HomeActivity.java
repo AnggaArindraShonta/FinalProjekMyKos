@@ -53,4 +53,26 @@ public class HomeActivity extends AppCompatActivity {
             }
         });
     }
+
+    private void getRecommendedSpaces() {
+        ApiInterface apiService =
+                ApiClient.getClient().create(ApiInterface.class);
+
+        Call<List<Kos>> call = apiService.getRecommendedSpace();
+        call.enqueue(new Callback<List<Kos>>() {
+            @Override
+            public void onResponse(Call<List<Kos>> call, Response<List<Kos>> response) {
+                if (response.isSuccessful()){
+                    List<Kos> kosList = response.body();
+                    adapter.updateList(kosList);
+                    Log.d(TAG, "Number of movies received: " + kosList.size());
+                }
+            }
+
+            @Override
+            public void onFailure(Call<List<Kos>> call, Throwable t) {
+
+            }
+        });
+    }
 }
