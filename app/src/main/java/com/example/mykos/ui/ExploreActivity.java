@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.mykos.databinding.ActivityExploreBinding;
+import com.example.mykos.ui.home.HomeActivity;
 
 public class ExploreActivity extends AppCompatActivity {
 
