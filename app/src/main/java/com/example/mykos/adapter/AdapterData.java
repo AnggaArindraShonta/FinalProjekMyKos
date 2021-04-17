@@ -1,6 +1,5 @@
 package com.example.mykos.adapter;
 
-import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,22 +11,21 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.mykos.R;
 import com.example.mykos.model.Kos;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
-    List<Kos> kos;
-    LayoutInflater layoutInflater;
-    private Context context;
+    private List<Kos> kos = new ArrayList<>();
 
-    public AdapterData(Context context, List<Kos> kos) {
-        this.kos = kos;
-        this.layoutInflater = LayoutInflater.from(context);
+    public void updateList(List<Kos> list){
+        kos = list;
+        notifyDataSetChanged();
     }
 
     @NonNull
     @Override
     public HolderData onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = layoutInflater.inflate(R.layout.item_recomended, parent, false);
+        View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recomended, parent, false);
         return new HolderData(view);
     }
 
