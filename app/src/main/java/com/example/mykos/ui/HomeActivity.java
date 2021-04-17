@@ -23,8 +23,8 @@ import retrofit2.Response;
 public class HomeActivity extends AppCompatActivity {
 
     private static final String TAG = MainActivity.class.getSimpleName();
-
-    private final static String API_KEY = "http://bwa-cozy.herokuapp.com/recommended-spaces";
+    private RecyclerView recyclerView;
+    private AdapterData adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
