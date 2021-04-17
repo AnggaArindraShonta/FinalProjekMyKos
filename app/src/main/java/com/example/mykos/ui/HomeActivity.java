@@ -35,21 +35,7 @@ public class HomeActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(adapter);
 
-        Call<Kos> call = apiService.getTopRatedMovies(API_KEY);
-        call.enqueue(new Callback<Kos>() {
-            @Override
-            public void onResponse(Call<Kos>call, Response<Kos> response) {
-                String kosList = response.body().getId();
-                Log.d(TAG, "Number of movies received: " + kosList.length());
-                Toast.makeText(HomeActivity.this, "Number of movies received: " + kosList.length(), Toast.LENGTH_LONG).show();
-                recyclerView.setAdapter(new AdapterData(kosList, R.layout.list_recomended, getApplicationContext()));
-            }
-
-            @Override
-            public void onFailure(Call<Kos>call, Throwable t) {
-                Log.e(TAG, t.toString());
-            }
-        });
+        getRecommendedSpaces();
     }
 
     private void getRecommendedSpaces() {
