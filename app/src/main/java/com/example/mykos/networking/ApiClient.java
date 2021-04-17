@@ -5,7 +5,7 @@ import retrofit2.converter.gson.GsonConverterFactory;
 
 public class ApiClient {
 
-    public static final String BASE_URL = "http://bwa-cozy.herokuapp.com/recommended-spaces";
+    public static final String BASE_URL = "http://bwa-cozy.herokuapp.com/";
     private static Retrofit retrofit = null;
 
 
