@@ -3,4 +3,9 @@
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="android:background">@android:color/white</item>
     </style>
+
+    <style name="RoundedImageView">
+        <item name="cornerSize">16dp</item>
+        <item name="cornerFamily">rounded</item>
+    </style>
 </resources>
