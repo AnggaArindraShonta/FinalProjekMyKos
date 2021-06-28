@@ -12,6 +12,7 @@ import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mykos.SharedPref.SharedPrefManager;
 import com.example.mykos.databinding.ActivitySignInBinding;
+import com.example.mykos.ui.ExploreActivity;
 import com.example.mykos.ui.home.HomeActivity;
 import com.rengwuxian.materialedittext.MaterialEditText;
 
@@ -77,7 +78,7 @@ public class SignInActivity extends AppCompatActivity {
     }
 
     private void gotoHome() {
-        Intent i = new Intent(SignInActivity.this, HomeActivity.class);
+        Intent i = new Intent(SignInActivity.this, ExploreActivity.class);
         finishAffinity();
         startActivity(i);
     }

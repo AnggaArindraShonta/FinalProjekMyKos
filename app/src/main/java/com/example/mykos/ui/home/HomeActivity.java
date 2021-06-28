@@ -1,33 +1,26 @@
 package com.example.mykos.ui.home;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
+import android.os.Parcelable;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.mykos.R;
 import com.example.mykos.adapter.AdapterData;
-import com.example.mykos.model.Kos;
 import com.example.mykos.networking.ApiClient;
 import com.example.mykos.networking.ApiInterface;
-import com.example.mykos.ui.MainActivity;
-
-import java.util.List;
-
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
+import com.example.mykos.ui.detail.DetailActivity;
+import static com.example.mykos.utils.Constant.KEY_INTENT_KOS;
 
 public class HomeActivity extends AppCompatActivity {
 
-    private static final String TAG = MainActivity.class.getSimpleName();
+    private static final String TAG = HomeActivity.class.getSimpleName();
     private RecyclerView recyclerView;
     private AdapterData adapter;
-
     private HomeViewModel homeViewModel;
 
     @Override
@@ -43,6 +36,16 @@ public class HomeActivity extends AppCompatActivity {
         initViewModel();
 
         getRecommendedSpaces();
+
+        setupView();
+    }
+
+    private void setupView() {
+        adapter.setOnItemCLickListener((view, kos, position) -> {
+            Intent intent = new Intent(this, DetailActivity.class);
+            intent.putExtra(KEY_INTENT_KOS, kos);
+            startActivity(intent);
+        });
     }
 
     @Override
@@ -53,12 +56,7 @@ public class HomeActivity extends AppCompatActivity {
     }
 
     private void subscribeToObservers() {
-        homeViewModel.observeRecommendedSpaces().observe(this, new Observer<List<Kos>>() {
-            @Override
-            public void onChanged(List<Kos> list) {
-                adapter.updateList(list);
-            }
-        });
+        homeViewModel.observeRecommendedSpaces().observe(this, list -> adapter.updateList(list));
     }
 
     private void initViewModel() {

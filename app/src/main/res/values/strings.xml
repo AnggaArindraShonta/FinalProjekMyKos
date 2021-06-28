@@ -2,6 +2,6 @@
     <string name="app_name">MyKos</string>
     <string name="sign_up">Sign Up</string>
     <string name="sign_in">Sign In</string>
-    <string name="bintang">4/5</string>
+    <string name="bintang">/5</string>
     <string name="harga"><b>$52</b> / month</string>
 </resources>

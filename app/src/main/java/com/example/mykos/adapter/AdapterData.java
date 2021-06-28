@@ -17,11 +17,19 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
-    private List<Kos> kos = new ArrayList<>();
 
-    public void updateList(List<Kos> list){
-        kos = list;
+    private List<Kos> kos = new ArrayList<>();
+    private Callback.ItemClick itemClick;
+
+    public void updateList(List<Kos> list) {
+        kos.clear();
+        kos.addAll(list);
+//        kos = list;
         notifyDataSetChanged();
+    }
+
+    public void setOnItemCLickListener(Callback.ItemClick callback) {
+        itemClick = callback;
     }
 
     @NonNull
@@ -34,6 +42,18 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
     @Override
     public void onBindViewHolder(@NonNull HolderData holder, int position) {
         holder.bindItem(kos.get(position));
+
+        if (itemClick != null) {
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                private String t;
+
+                @Override
+                public void onClick(View v) {
+                    itemClick.onItemClick(v, kos.get(position), position);
+                }
+            });
+        }
+
     }
 
     @Override
@@ -41,8 +61,8 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
         return kos.size();
     }
 
-    public class HolderData extends RecyclerView.ViewHolder{
-        TextView rating, nama, harga, tempat;
+    public class HolderData extends RecyclerView.ViewHolder {
+        TextView rating, nama, harga, tempat, negara;
         private ImageView image;
 
         public HolderData(@NonNull View itemView) {
@@ -52,6 +72,7 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
             nama = itemView.findViewById(R.id.txtnama);
             harga = itemView.findViewById(R.id.txtharga);
             tempat = itemView.findViewById(R.id.txttempat);
+            negara = itemView.findViewById(R.id.txtnegara);
             image = itemView.findViewById(R.id.image);
         }
 
@@ -60,9 +81,16 @@ public class AdapterData extends RecyclerView.Adapter<AdapterData.HolderData> {
             nama.setText(kos.getName());
             harga.setText(kos.getPrice());
             tempat.setText(kos.getCity());
+            negara.setText(kos.getCountry());
             Glide.with(itemView)
                     .load(kos.getImage_url())
                     .into(image);
+        }
+    }
+
+    interface Callback {
+        interface ItemClick {
+            void onItemClick(View view, Kos kos, int position);
         }
     }
 }

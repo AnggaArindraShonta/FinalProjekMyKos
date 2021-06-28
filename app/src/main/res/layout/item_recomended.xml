@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:layout_margin="20dp">
@@ -9,61 +9,152 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <ImageView
-            android:id="@+id/image"
-            android:layout_width="130dp"
-            android:layout_height="110dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/kureta" />
-
-        <TextView
-            android:id="@+id/rating"
+        <androidx.cardview.widget.CardView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginStart="95dp"
-            android:layout_marginTop="7dp"
-            android:fontFamily="@font/poppinssb"
-            android:text="@string/bintang"
-            android:textColor="#fff"
-            android:textSize="13sp" />
+            app:cardCornerRadius="18dp">
+
+            <RelativeLayout
+                android:layout_width="130dp"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/image"
+                    android:layout_width="130dp"
+                    android:layout_height="110dp"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/kureta" />
+
+                <ImageView
+                    android:id="@+id/image1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:scaleType="centerCrop"
+                    android:src="@drawable/bgrating" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:id="@+id/rating"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginStart="95dp"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:text="5"
+                        android:textColor="#fff"
+                        android:textSize="13sp" />
+
+                    <TextView
+                        android:id="@+id/rating1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentStart="true"
+                        android:layout_alignParentTop="true"
+                        android:layout_marginTop="4dp"
+                        android:fontFamily="@font/poppinsmedium"
+                        android:text="@string/bintang"
+                        android:textColor="#fff"
+                        android:textSize="13sp" />
+
+                </LinearLayout>
+            </RelativeLayout>
+        </androidx.cardview.widget.CardView>
     </RelativeLayout>
+
     <LinearLayout
-        android:layout_marginTop="10dp"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_gravity="center"
         android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtnama"
-            android:fontFamily="@font/poppinsmedium"
-            android:textColor="@color/black"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_marginStart="20dp"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Kuretakeso Hott"/>
-        <TextView
-            android:id="@+id/txtharga"
-            android:fontFamily="@font/poppinslight"
+            android:fontFamily="@font/poppinsmedium"
+            android:text="Kuretakeso Hott"
             android:textColor="@color/black"
-            android:layout_marginStart="18dp"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/harga"/>
-        <TextView
-            android:id="@+id/txttempat"
-            android:fontFamily="@font/poppinslight"
-            android:textColor="@color/black"
-            android:layout_marginStart="18dp"
-            android:textSize="18sp"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Bandung, Germany"/>
+            android:textSize="18sp" />
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="2dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="$"
+                android:textColor="#5843BE"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/txtharga"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinsmedium"
+                android:text="200"
+                android:textColor="#5843BE"
+                android:textSize="16sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/poppinslight"
+                android:text="/ month"
+                android:textSize="16sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/txttempat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="18dp"
+                android:fontFamily="@font/poppinslight"
+                android:text="Bandung"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txkoma"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poppinslight"
+                android:text=","
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+            <TextView
+                android:id="@+id/txtnegara"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/poppinslight"
+                android:text="Germany"
+                android:textColor="@color/black"
+                android:textSize="14sp" />
+
+        </LinearLayout>
     </LinearLayout>
-
-
 </LinearLayout>

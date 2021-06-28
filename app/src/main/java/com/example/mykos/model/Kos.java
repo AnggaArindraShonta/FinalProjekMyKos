@@ -1,9 +1,9 @@
 package com.example.mykos.model;
 
 public class Kos {
-    private String id, name, city, country, price, image_url, rating, address, phone, map_url, number_of_kitchens, number_of_bedrooms, number_of_cupboards;
+    private String id, name, city, country, price, image_url, rating, address, phone, map_url, photos, number_of_kitchens, number_of_bedrooms, number_of_cupboards;
 
-    public Kos(String id, String name, String city, String country, String price, String image_url, String rating, String address, String phone, String map_url, String number_of_kitchens, String number_of_bedrooms, String number_of_cupboards) {
+    public Kos(String id, String name, String city, String country, String price, String image_url, String rating, String address, String phone, String map_url, String photos, String number_of_kitchens, String number_of_bedrooms, String number_of_cupboards) {
         this.id = id;
         this.name = name;
         this.city = city;
@@ -14,6 +14,7 @@ public class Kos {
         this.address = address;
         this.phone = phone;
         this.map_url = map_url;
+        this.photos = photos;
         this.number_of_kitchens = number_of_kitchens;
         this.number_of_bedrooms = number_of_bedrooms;
         this.number_of_cupboards = number_of_cupboards;
@@ -97,6 +98,14 @@ public class Kos {
 
     public void setMap_url(String map_url) {
         this.map_url = map_url;
+    }
+
+    public String getPhotos() {
+        return photos;
+    }
+
+    public void setPhotos(String photos) {
+        this.photos = photos;
     }
 
     public String getNumber_of_kitchens() {

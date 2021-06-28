@@ -1,0 +1,68 @@
+{
+  "project_info": {
+    "project_number": "65587049075",
+    "project_id": "mykos-d3258",
+    "storage_bucket": "mykos-d3258.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65587049075:android:9e1390931ce1f93207f006",
+        "android_client_info": {
+          "package_name": "com.example.FlutterCariKos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65587049075-0es32huca2qejjipbp5tfa9m3gbk1ha5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA91muetrwbOleZfhCsaOkZNICvHXq2-h4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65587049075-0es32huca2qejjipbp5tfa9m3gbk1ha5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65587049075:android:8ebc5b3acab832c107f006",
+        "android_client_info": {
+          "package_name": "com.example.mykos"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65587049075-0es32huca2qejjipbp5tfa9m3gbk1ha5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA91muetrwbOleZfhCsaOkZNICvHXq2-h4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65587049075-0es32huca2qejjipbp5tfa9m3gbk1ha5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

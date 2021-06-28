@@ -8,6 +8,7 @@ import android.os.Handler;
 import android.widget.ProgressBar;
 
 import com.example.mykos.R;
+import com.example.mykos.ui.sigin.SignInActivity;
 import com.github.ybq.android.spinkit.sprite.Sprite;
 import com.github.ybq.android.spinkit.style.ThreeBounce;
 
@@ -24,13 +25,10 @@ public class SplashActivity extends AppCompatActivity {
         Sprite doubleBounce = new ThreeBounce();
         progressBar.setIndeterminateDrawable(doubleBounce);
 
-        handler.postDelayed(new Runnable() {
-            @Override
-            public void run() {
-                Intent i = new Intent(SplashActivity.this, ExploreActivity.class);
-                finishAffinity();
-                startActivity(i);
-            }
+        handler.postDelayed(() -> {
+            Intent i = new Intent(SplashActivity.this, SignInActivity.class);
+            finishAffinity();
+            startActivity(i);
         }, 2500);
 
     }

@@ -10,12 +10,10 @@ import retrofit2.http.Path;
 import retrofit2.http.Query;
 
 public interface ApiInterface {
-    @GET("movie/top_rated")
-    Call<Kos> getTopRatedMovies(@Query("api_key") String apiKey);
-
-    @GET("movie/{id}")
-    Call<Kos> getMovieDetails(@Path("id") int id, @Query("api_key") String apiKey);
 
     @GET("recommended-spaces")
     Call<List<Kos>> getRecommendedSpace();
+
+    @GET("detail-spaces")
+    Call<List<Kos>> getDetailSpace();
 }

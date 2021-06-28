@@ -12,11 +12,15 @@
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
         android:theme="@style/Theme.MyKos">
-        <activity android:name=".ui.DetailActivity"></activity>
+        <activity android:name=".ui.detail.DetailActivity"/>
         <activity android:name=".ui.home.HomeActivity" />
         <activity android:name=".ui.ExploreActivity" />
-        <activity android:name=".ui.OTPVerActivity" />
-        <activity android:name=".ui.OTPPhoneActivity" />
+        <activity android:name=".ui.OTPVerActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+        <activity android:name=".ui.OTPPhoneActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
         <activity android:name=".ui.SignUpActivity" />
         <activity android:name=".ui.sigin.SignInActivity" />
         <activity android:name=".ui.SplashActivity">
@@ -26,7 +30,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".ui.MainActivity" />
     </application>
 
 </manifest>
