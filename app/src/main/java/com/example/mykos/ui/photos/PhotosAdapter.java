@@ -12,13 +12,6 @@ import com.example.mykos.databinding.ItemPhotoBinding;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created on 6/28/21 by Pengkuh Dwi Septiandi (@pengdst)
- * <p>
- * - Github https://github.com/pengdst
- * - Gitlab https://gitlab.com/pengdst
- * - LinkedIn https://linkedin.com/in/pengdst
- */
 public class PhotosAdapter extends RecyclerView.Adapter<PhotosAdapter.PhotoViewHolder> {
 
     private List<String> images = new ArrayList<>();
