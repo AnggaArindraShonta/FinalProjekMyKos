@@ -1,6 +1,8 @@
 package com.example.mykos.model;
 
-public class Kos {
+import java.io.Serializable;
+
+public class Kos implements Serializable {
     private String id, name, city, country, price, image_url, rating, address, phone, map_url, photos, number_of_kitchens, number_of_bedrooms, number_of_cupboards;
 
     public Kos(String id, String name, String city, String country, String price, String image_url, String rating, String address, String phone, String map_url, String photos, String number_of_kitchens, String number_of_bedrooms, String number_of_cupboards) {

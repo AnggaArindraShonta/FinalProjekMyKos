@@ -50,7 +50,7 @@ public class DetailActivity extends AppCompatActivity {
             phone.setText(kos.getPhone());
 
             Glide.with(DetailActivity.this)
-                    .load(kos.getPhotos())
+                    .load(kos.getPhotos());
                     .into();
         }
     }
