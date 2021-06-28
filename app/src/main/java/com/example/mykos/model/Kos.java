@@ -1,11 +1,13 @@
 package com.example.mykos.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Kos implements Serializable {
-    private String id, name, city, country, price, image_url, rating, address, phone, map_url, photos, number_of_kitchens, number_of_bedrooms, number_of_cupboards;
+    private String id, name, city, country, price, image_url, rating, address, phone, map_url, number_of_kitchens, number_of_bedrooms, number_of_cupboards;
+    private List<String> photos;
 
-    public Kos(String id, String name, String city, String country, String price, String image_url, String rating, String address, String phone, String map_url, String photos, String number_of_kitchens, String number_of_bedrooms, String number_of_cupboards) {
+    public Kos(String id, String name, String city, String country, String price, String image_url, String rating, String address, String phone, String map_url, List<String> photos, String number_of_kitchens, String number_of_bedrooms, String number_of_cupboards) {
         this.id = id;
         this.name = name;
         this.city = city;
@@ -102,11 +104,11 @@ public class Kos implements Serializable {
         this.map_url = map_url;
     }
 
-    public String getPhotos() {
+    public List<String> getPhotos() {
         return photos;
     }
 
-    public void setPhotos(String photos) {
+    public void setPhotos(List<String> photos) {
         this.photos = photos;
     }
 
