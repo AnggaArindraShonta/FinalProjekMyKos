@@ -1,6 +1,7 @@
 package com.example.mykos.ui.home;
 
 import android.os.Handler;
+import android.util.Log;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
@@ -16,6 +17,8 @@ import retrofit2.Callback;
 import retrofit2.Response;
 
 public class HomeViewModel extends ViewModel {
+
+    private static final String TAG = "HomeViewModel";
 
     private ApiInterface apiInterface;
     private Handler handler = new Handler();
@@ -39,7 +42,7 @@ public class HomeViewModel extends ViewModel {
 
             @Override
             public void onFailure(Call<List<Kos>> call, Throwable t) {
-
+                Log.e(TAG, "onFailure: ", t);
             }
         });
     }
