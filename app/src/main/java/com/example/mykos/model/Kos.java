@@ -133,4 +133,24 @@ public class Kos implements Serializable {
     public void setNumber_of_cupboards(String number_of_cupboards) {
         this.number_of_cupboards = number_of_cupboards;
     }
+
+    @Override
+    public String toString() {
+        return "Kos{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", city='" + city + '\'' +
+                ", country='" + country + '\'' +
+                ", price='" + price + '\'' +
+                ", image_url='" + image_url + '\'' +
+                ", rating='" + rating + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", map_url='" + map_url + '\'' +
+                ", photos='" + photos + '\'' +
+                ", number_of_kitchens='" + number_of_kitchens + '\'' +
+                ", number_of_bedrooms='" + number_of_bedrooms + '\'' +
+                ", number_of_cupboards='" + number_of_cupboards + '\'' +
+                '}';
+    }
 }
